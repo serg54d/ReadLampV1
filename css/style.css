@@ -1,0 +1,343 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,regular,500);
+@charset "UTF-8";
+* {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  min-width: 320px;
+}
+
+body {
+  color: #fff;
+  line-height: 1;
+  font-family: "Roboto";
+  font-size: 1rem;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input,
+button,
+textarea {
+  font-family: "Roboto";
+  font-size: inherit;
+}
+
+button {
+  cursor: pointer;
+  color: inherit;
+  background-color: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+.lock body {
+  overflow: hidden;
+  touch-action: none;
+}
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.wrapper > main {
+  flex: 1 1 auto;
+}
+.wrapper > * {
+  min-width: 0;
+}
+
+/*
+(i) Стили будут применяться ко 
+всем классам содержащим *__container
+Например header__container, main__container и т.д.
+Снипет (HTML): cnt
+*/
+[class*=__container] {
+  max-width: 73.4375rem;
+  box-sizing: content-box;
+  margin: 0 auto;
+  padding: 0 0.9375rem;
+}
+
+[class*=-ibg] {
+  position: relative;
+}
+[class*=-ibg] img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+
+[class*=-ibg_contain] img {
+  object-fit: contain;
+}
+
+.icon-menu {
+  display: none;
+  margin-left: 10px;
+}
+@media (max-width: 21.25em) {
+  .icon-menu {
+    transform: scale(1.1);
+  }
+}
+@media (max-width: 47.99875em) {
+  .icon-menu {
+    display: block;
+    position: relative;
+    width: 1.875rem;
+    height: 1.125rem;
+    cursor: pointer;
+    z-index: 5;
+  }
+  .icon-menu span, .icon-menu::before, .icon-menu::after {
+    content: "";
+    transition: all 0.3s ease 0s;
+    right: 0;
+    position: absolute;
+    width: 100%;
+    height: 0.125rem;
+    background-color: #fff;
+  }
+  .icon-menu::before {
+    top: 0;
+  }
+  .icon-menu::after {
+    bottom: 0;
+  }
+  .icon-menu span {
+    top: calc(50% - 0.0625rem);
+  }
+  .menu-open .icon-menu span {
+    width: 0;
+  }
+  .menu-open .icon-menu::before {
+    top: calc(50% - 0.0625rem);
+    transform: rotate(-45deg);
+  }
+  .menu-open .icon-menu::after {
+    bottom: calc(50% - 0.0625rem);
+    transform: rotate(45deg);
+  }
+}
+
+.header {
+  background-color: #222;
+}
+.header__container {
+  display: flex;
+  min-height: 80px;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (max-width: 34.8125em) {
+  .header__container {
+    justify-content: start;
+  }
+}
+.header__logo {
+  padding-right: 15px;
+  z-index: 5;
+}
+@media (max-width: 34.8125em) {
+  .header__logo {
+    margin-right: auto;
+  }
+}
+.menu {
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+}
+@media (max-width: 61.99875em) {
+  .menu {
+    padding: 0 15px;
+  }
+}
+@media (max-width: 47.99875em) {
+  .menu {
+    position: fixed;
+    left: -100%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 100px 100px 30px 30px;
+    transition: left 0.3 ease 0s;
+  }
+  .menu-open .menu {
+    left: 0;
+  }
+}
+.menu__body {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+.menu__list {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+  line-height: 1.19;
+  flex-wrap: wrap;
+  row-gap: 10px;
+}
+@media (max-width: 47.99875em) {
+  .menu__list {
+    flex-direction: column;
+  }
+}
+@media (max-width: 47.99875em) {
+  .menu__link {
+    font-size: 1.5em;
+  }
+}
+.menu__search {
+  display: flex;
+  flex: 0 0 31.5%;
+  background-color: #3E3E3E;
+  border-radius: 5px;
+  padding: 10px 15px;
+  color: #fff;
+}
+@media (max-width: 47.99875em) {
+  .menu__search {
+    flex: 1 0 31.5%;
+    max-width: 400px;
+  }
+}
+@media (max-width: 34.8125em) {
+  .menu__search {
+    display: none;
+  }
+}
+.menu__search::placeholder {
+  color: #fff;
+  opacity: 0.5;
+  font-size: 0.8125em;
+  line-height: 1.15;
+}
+
+.functional-menu {
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  column-gap: 60px;
+}
+@supports (column-gap: clamp( 0.9375rem , -0.1810682327rem  +  5.5928411633vw , 2.5rem )) {
+  .functional-menu {
+    column-gap: clamp( 0.9375rem , -0.1810682327rem  +  5.5928411633vw , 2.5rem );
+  }
+}
+@supports not (column-gap: clamp( 0.9375rem , -0.1810682327rem  +  5.5928411633vw , 2.5rem )) {
+  .functional-menu {
+    column-gap: calc(0.9375rem + 1.5625 * (100vw - 20rem) / 27.9375);
+  }
+}
+@media (max-width: 20.9375em) {
+  .functional-menu__switcher {
+    display: none;
+  }
+}
+.authorization__button {
+  line-height: 1.19;
+}
+@media (max-width: 21.25em) {
+  .authorization__button {
+    padding-right: 5px;
+    font-size: 1.25em;
+  }
+}
+
+.page {
+  background-color: #2C2C2C;
+}
+.page__container {
+  padding-top: 2.5em;
+}
+.page__title-swiper {
+  font-weight: 500;
+  font-size: 2.25em;
+  line-height: 1.166;
+  color: #ffffff;
+}
+.swiper {
+  overflow: hidden;
+}
+
+.swiper-wrapper {
+  width: 100%;
+  height: 100%;
+  box-sizing: content-box;
+  display: flex;
+  position: relative;
+}
+
+.swiper-vertical .swiper-wrapper {
+  flex-direction: column;
+}
+
+.swiper-autoheight .swiper-wrapper {
+  align-items: flex-start;
+}
+
+.swiper-initialized .swiper-slide {
+  flex-shrink: 0;
+}
+
+.swiper-android .swiper-slide,
+.swiper-android .swiper-wrapper {
+  transform: translate3d(0px, 0, 0);
+}
+
+.swiper-button-lock {
+  display: none !important;
+}
